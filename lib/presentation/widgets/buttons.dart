@@ -20,7 +20,7 @@ class _CustomButtonState extends State<CustomButton> {
         width: double.infinity,
         decoration: const BoxDecoration(color: AppColors.primary, borderRadius: BorderRadius.all(Radius.circular(24))),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: widget.fun,
           style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(AppColors.primary), elevation: MaterialStateProperty.all<double>(0)),
           child: Text(
             widget.label ?? "",
@@ -60,7 +60,7 @@ class _CustomTextButtonState extends State<CustomTextButton> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () {},
+        onPressed: widget.fun,
         child: Text(
           widget.label ?? 'Click me',
           style: const TextStyle(fontSize: 16, color: AppColors.primary),

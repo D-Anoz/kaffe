@@ -4,6 +4,9 @@ import 'package:caffe/presentation/widgets/buttons.dart';
 import 'package:caffe/presentation/widgets/form.dart';
 import 'package:flutter/material.dart';
 
+import 'home_screen.dart';
+import 'signup_screen.dart';
+
 class SigninScreen extends StatefulWidget {
   const SigninScreen({super.key});
 
@@ -31,9 +34,14 @@ class _SigninScreenState extends State<SigninScreen> {
               const SizedBox(height: 24),
               CustomFormField(controller: passwordController, hintText: 'Password'),
               const SizedBox(height: 40),
-              const CustomButton(label: 'Sign in'),
+              CustomButton(
+                label: 'Sign in',
+                fun: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+                },
+              ),
               const SizedBox(height: 20),
-              const CustomTextButton(label: 'Forget password'),
+              const CustomTextButton(label: 'Forget password?'),
               const SizedBox(height: 28),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,11 +75,16 @@ class _SigninScreenState extends State<SigninScreen> {
                 ],
               ),
               const SizedBox(height: 32),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Already have an account?', style: TextStyle(fontSize: 16)),
-                  CustomTextButton(label: 'Sign in')
+                  const Text('Don’t have an account?', style: TextStyle(fontSize: 16)),
+                  CustomTextButton(
+                    label: 'Sign up',
+                    fun: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SignupPage()));
+                    },
+                  )
                 ],
               )
             ],
